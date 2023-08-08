@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black: #141821;
+  --white: #f8f8f8;
+  --gray-100: #666262;
+  --gray-200: #78797e;
+  --orange: #f8c5a8;
+  --orange-200: #da753c;
+  --gradient-orange: linear-gradient(41deg, #da753c 23.44%, #eae0da 100%);
+}
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --foreground-rgb: 255, 255, 255;
+//     --background-start-rgb: 0, 0, 0;
+//     --background-end-rgb: 0, 0, 0;
+//   }
+// }
+
+.sr-only {
+  display: none;
+}
+
+@import "./modules/cards.module";
+@import "./modules/borders.module";
+@import "./modules/buttons.module";
+@import "./modules/forms.module";
+@import "./modules/typography.module";
+@import "./modules/textures.module";

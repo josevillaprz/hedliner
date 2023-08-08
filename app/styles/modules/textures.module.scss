@@ -1,0 +1,31 @@
+.bg-orbs {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: -100px;
+    width: 400px;
+    height: 500px;
+    background-image: url("/textures/blob-left.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+    filter: blur(40px);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 40%;
+    right: -100px;
+    width: 400px;
+    height: 500px;
+    background-image: url("/textures/blob-right.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+    filter: blur(40px);
+  }
+}

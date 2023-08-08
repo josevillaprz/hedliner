@@ -1,0 +1,14 @@
+.trending-card {
+  @apply w-[calc(50%-16px)] md:w-[calc(25%-16px)] py-40 rounded-lg border-solid relative;
+
+  filter: saturate(0.33);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:hover {
+    transform: scale(1.02);
+    filter: saturate(1);
+    transition: ease-out 0.3s;
+  }
+}

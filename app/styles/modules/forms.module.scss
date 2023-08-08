@@ -1,0 +1,9 @@
+form {
+  @apply mt-8 flex w-full max-w-[600px] p-1 border-solid rounded overflow-hidden;
+
+  input {
+    background: transparent;
+    outline: none;
+    padding: 0 1rem;
+  }
+}
