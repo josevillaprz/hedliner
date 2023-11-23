@@ -4,23 +4,23 @@ export default function Sponsors() {
   // TODO: make an interface of this
   const sponsorDetails = [
     {
-      path: "/sponsor-images/sponsor-1.svg",
+      path: "/images/sponsor-images/sponsor-1.svg",
       alt: "spn",
     },
     {
-      path: "/sponsor-images/sponsor-2.svg",
+      path: "/images/sponsor-images/sponsor-2.svg",
       alt: "spn",
     },
     {
-      path: "/sponsor-images/sponsor-3.svg",
+      path: "/images/sponsor-images/sponsor-3.svg",
       alt: "spn",
     },
     {
-      path: "/sponsor-images/sponsor-4.svg",
+      path: "/images/sponsor-images/sponsor-4.svg",
       alt: "spn",
     },
     {
-      path: "/sponsor-images/sponsor-5.svg",
+      path: "/images/sponsor-images/sponsor-5.svg",
       alt: "spn",
     },
   ];

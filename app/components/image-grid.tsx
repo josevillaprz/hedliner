@@ -1,36 +1,30 @@
 import Image from "next/image";
-import imageOne from "../../public/grid-images/grid-image-1.jpg";
-import imageTwo from "../../public/grid-images/grid-image-2.jpg";
-import imageThree from "../../public/grid-images/grid-image-3.jpg";
-import imageFour from "../../public/grid-images/grid-image-4.jpg";
-import imageFive from "../../public/grid-images/grid-image-5.jpg";
-import imageSix from "../../public/grid-images/grid-image-6.jpg";
 
 export default function ImageGrid() {
   // TODO: make an interface of this
   const images = [
     {
-      path: imageOne,
+      path: '/images/grid-images/grid-image-1.webp',
       height: "240px",
     },
     {
-      path: imageTwo,
+      path: '/images/grid-images/grid-image-2.webp',
       height: "380px",
     },
     {
-      path: imageThree,
+      path: '/images/grid-images/grid-image-3.webp',
       height: "240px",
     },
     {
-      path: imageFour,
+      path: '/images/grid-images/grid-image-4.webp',
       height: "280px",
     },
     {
-      path: imageFive,
+      path: '/images/grid-images/grid-image-5.webp',
       height: "400px",
     },
     {
-      path: imageSix,
+      path: '/images/grid-images/grid-image-6.webp',
       height: "280px",
     },
   ];
@@ -47,7 +41,7 @@ export default function ImageGrid() {
             src={image.path}
             className="rounded-md"
             alt="image"
-            placeholder="blur"
+            // placeholder="blur"
             quality={100}
             fill
             sizes="100vw"

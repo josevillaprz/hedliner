@@ -5,22 +5,22 @@ const featuredArtists: Array<ArtistData> = [
   {
     searchKeyword: "drake",
     name: "Drake",
-    imgPath: "/featured-artists/featured-1.jpg",
+    imgPath: "/images/featured-artists/featured-1.jpg",
   },
   {
     searchKeyword: "beyonce",
     name: "beyonce",
-    imgPath: "/featured-artists/featured-2.jpg",
+    imgPath: "/images/featured-artists/featured-2.jpg",
   },
   {
     searchKeyword: "coldplay",
     name: "coldplay",
-    imgPath: "/featured-artists/featured-3.jpg",
+    imgPath: "/images/featured-artists/featured-3.jpg",
   },
   {
     searchKeyword: "metallica",
     name: "metallica",
-    imgPath: "/featured-artists/featured-4.jpg",
+    imgPath: "/images/featured-artists/featured-4.jpg",
   },
 ];
 

@@ -1,7 +1,7 @@
 export default async function fetchEvents(attractionId: string) {
-  const baseUrl = "https://app.ticketmaster.com/discovery/v2/events";
-  const apiKey = "bKX5jS9T2TlroD8wMcQ0Gth24As1CZF6";
-  const fullUrl = `${baseUrl}?apikey=${apiKey}&attractionId=${attractionId}&locale=*`;
+  // const baseUrl = "https://app.ticketmaster.com/discovery/v2/events";
+  // const apiKey = "bKX5jS9T2TlroD8wMcQ0Gth24As1CZF6";
+  const fullUrl = `${process.env.API_BASE_URL}events?apikey=${process.env.API_KEY}&attractionId=${attractionId}&locale=*`;
 
   try {
     const response = await fetch(fullUrl);

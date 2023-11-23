@@ -2,14 +2,16 @@
  * Fetches single music attraction based on keyword.
  *
  * @param String keyword - keyword to search by.
+ *
  * @returns Object - response object, or null if the data array is empty.
+ *
  * @throws Error - on failed fetch.
  */
 export default async function fetchSingleAttraction(keyword: string) {
-  const baseUrl = "https://app.ticketmaster.com/discovery/v2/attractions";
-  const apiKey = "bKX5jS9T2TlroD8wMcQ0Gth24As1CZF6";
-  const musicSegmentID = "KZFzniwnSyZfZ7v7nJ";
-  const fullUrl = `${baseUrl}?apikey=${apiKey}&keyword=${keyword}&segmentId=${musicSegmentID}`;
+  // const baseUrl = "https://app.ticketmaster.com/discovery/v2/attractions";
+  // const apiKey = "bKX5jS9T2TlroD8wMcQ0Gth24As1CZF6";
+  // const musicSegmentID = "KZFzniwnSyZfZ7v7nJ";
+  const fullUrl = `${process.env.API_BASE_URL}attractions?apikey=${process.env.API_KEY}&keyword=${keyword}&segmentId=${process.env.MUSIC_SEGMENT_ID}`;
 
   try {
     const response = await fetch(fullUrl);

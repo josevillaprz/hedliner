@@ -3,19 +3,17 @@ import { useEffect, useState, SyntheticEvent } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SearchBar({
-  handler,
   className,
 }: {
   className?: string;
-  handler: Function;
+  handler?: Function;
 }) {
   const router = useRouter();
-
   const [keyword, setKeyword] = useState("");
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    router.push(`/results/${keyword}`);
+    router.push(`/attractions?search=${keyword}`);
   };
 
   return (

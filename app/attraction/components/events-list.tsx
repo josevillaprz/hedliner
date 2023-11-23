@@ -1,21 +1,27 @@
 import { EventData } from "@/app/types/event";
 import Link from "next/link";
-import formatDateToMMDD from "@/util/formatDate";
+import formatDateToMMDD from "@/app/util/formatDate";
 
 export default function EventList({ data }: { data: EventData }) {
-  let events = data.events;
+  // let data.events = data.data.events;
+
+  if (!data.events && data.events.length === 0) {
+    return <div>no results</div>;
+  }
 
   return (
     <ul>
-      {events.map((item: any) => {
+      {data.events.map((item) => {
         const date = formatDateToMMDD(item.dates.start.localDate ?? "");
-        const venue = item._embedded.venues[0] ?? {};
-        // TODO: Get "state" for values that dont have it, Outside the US
-        const city = venue?.city?.name ?? "";
-        const state = venue?.state?.stateCode ?? "";
+        const venue = item._embedded.venues[0] || {};
+        const city = venue.city?.name || "";
+        const state = venue.state?.stateCode || "";
 
         return (
-          <article className="flex items-center p-5 justify-between border-solid rounded-lg mb-5">
+          <article
+            key={item.id}
+            className="flex items-center p-5 justify-between border-solid rounded-lg mb-5"
+          >
             <div className="flex gap-2">
               <div className="w-12 flex flex-col items-center">
                 <p className="flex flex-col items-center justify-center leading-tight text-l text-orange-200">
@@ -27,7 +33,7 @@ export default function EventList({ data }: { data: EventData }) {
                 <h2 className="font-bold mb-1">{item.name}</h2>
                 <div>
                   <p>{`${city}, ${state}`}</p>
-                  <p>{item._embedded.venues[0].name}</p>
+                  <p>{venue.name}</p>
                 </div>
               </div>
             </div>
