@@ -30,7 +30,7 @@ export default async function fetchAttraction(
       throw new Error("Error parsing JSON in the API response");
     }
 
-    const attractions = data?._embedded?.attractions ?? [];
+    const attractions = data["_embedded"]?.["attractions"] || [];
 
     return { success: true, data: attractions };
   } catch (error: any) {

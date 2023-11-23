@@ -3,9 +3,8 @@ import Link from "next/link";
 import formatDateToMMDD from "@/app/util/formatDate";
 
 export default function EventList({ data }: { data: EventData }) {
-  // let data.events = data.data.events;
 
-  if (!data.events && data.events.length === 0) {
+  if (!data.events || data.events.length === 0) {
     return <div>no results</div>;
   }
 

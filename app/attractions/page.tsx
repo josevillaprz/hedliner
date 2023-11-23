@@ -14,7 +14,7 @@ export default async function Page({ searchParams }: { searchParams: { search: s
           <h1>Search results for "{searchParams.search}"</h1>
           <div>
             {data.length > 0
-              ? data.map((item) => <p>{item.name}</p>)
+              ? data.map((item) => <a href={`/attraction?id=${item.id}`}>{item.name}</a>)
               : "No results"}
           </div>
         </section>

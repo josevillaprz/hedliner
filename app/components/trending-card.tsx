@@ -8,7 +8,7 @@ export default async function TrendingCard({
 }) {
   return (
     <Link
-      href={`/attraction/${artistData.searchKeyword}`}
+      href={`/attraction?id=${artistData.id}`}
       className={`trending-card`}
       style={{ backgroundImage: `url(${artistData.imgPath})` }}
     >

@@ -1,8 +1,8 @@
 import fetchEvents from "@/app/util/fetchEvents";
 import fetchSingleAttraction from "@/app/util/fetchSingleAttraction";
 import { EventData } from "@/app/types/event";
-import Hero from "../components/Hero";
-import EventList from "../components/events-list";
+import Hero from "./components/Hero";
+import EventList from "./components/events-list";
 import SearchBar from "@/app/components/search-bar";
 
 function filterBiggestImage(images: any[]) {
@@ -22,19 +22,15 @@ const data: EventData = {
   events: [],
 };
 
-export default async function Page({
-  params,
-}: {
-  params: { keyword: string };
-}) {
+export default async function Page({ searchParams }: { searchParams: { id: string } }) {
   let attractionResult = null;
 
   try {
-    attractionResult = await fetchSingleAttraction(params.keyword);
+    attractionResult = await fetchSingleAttraction(searchParams.id);
 
-    if (!attractionResult.success) {
-      return;
-    }
+    // if (!attractionResult.success) {
+    //   return;
+    // }
 
     let image = attractionResult.data.images
       ? filterBiggestImage(attractionResult.data.images)
@@ -43,16 +39,15 @@ export default async function Page({
     data.attractionId = attractionResult.data.id ?? "";
     data.name = attractionResult.data.name ?? "";
     data.image = image ?? { ...defaultImageData };
-    
+
     const eventResult = await fetchEvents(data.attractionId);
 
-    if (!eventResult.success) {
-      return;
-    }
+    // if (!eventResult.success) {
+    //   return;
+    // }
 
     data.events = eventResult.data ?? [];
   } catch (error) {}
-  
 
   return (
     <main className="min-h-screen p-4 md:p-10 mx-auto max-w-7xl">

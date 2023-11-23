@@ -1,28 +1,24 @@
 /**
- * Fetches single music attraction based on keyword.
+ * Fetches single music attraction based on id.
  *
- * @param String keyword - keyword to search by.
+ * @param String ID - id of attraction to search by.
  *
  * @returns Object - response object, or null if the data array is empty.
  *
  * @throws Error - on failed fetch.
  */
-export default async function fetchSingleAttraction(keyword: string) {
-  // const baseUrl = "https://app.ticketmaster.com/discovery/v2/attractions";
-  // const apiKey = "bKX5jS9T2TlroD8wMcQ0Gth24As1CZF6";
-  // const musicSegmentID = "KZFzniwnSyZfZ7v7nJ";
-  const fullUrl = `${process.env.API_BASE_URL}attractions?apikey=${process.env.API_KEY}&keyword=${keyword}&segmentId=${process.env.MUSIC_SEGMENT_ID}`;
+export default async function fetchSingleAttraction(id: string) {
+  const fullUrl = `${process.env.API_BASE_URL}attractions?apikey=${process.env.API_KEY}&id=${id}&segmentId=${process.env.MUSIC_SEGMENT_ID}`;
 
   try {
     const response = await fetch(fullUrl);
 
     if (!response.ok) {
-      console.error("API response was not ok:", response);
-      return { success: false };
+      throw new Error("API response was not ok");
     }
 
     const data = await response.json();
-    const artistData = data["_embedded"]["attractions"][0] ?? null;
+    const artistData = data["_embedded"]?.["attractions"]?.[0] ?? null;
 
     return { success: true, data: artistData };
   } catch (error) {
