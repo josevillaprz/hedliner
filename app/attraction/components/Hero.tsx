@@ -1,4 +1,4 @@
-import { EventData } from "@/app/types/event";
+import { EventData } from "@/app/types/interfaces";
 
 export default function Hero({ data }: { data: EventData }) {
   return (

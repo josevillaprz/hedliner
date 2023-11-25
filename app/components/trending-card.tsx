@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArtistData } from "../types/artist";
+import { ArtistData } from "../types/interfaces";
 
 export default async function TrendingCard({
   artistData,

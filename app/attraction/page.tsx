@@ -1,13 +1,10 @@
 import fetchEvents from "@/app/util/fetchEvents";
 import fetchSingleAttraction from "@/app/util/fetchSingleAttraction";
-import { EventData } from "@/app/types/event";
+import { EventData } from "@/app/types/interfaces";
+import { filterBiggestImage } from '../util/utils';
 import Hero from "./components/Hero";
 import EventList from "./components/events-list";
 import SearchBar from "@/app/components/search-bar";
-
-function filterBiggestImage(images: any[]) {
-  return images.reduce((prev, cur) => (prev.width < cur.width ? cur : prev));
-}
 
 const defaultImageData = {
   url: "",
@@ -28,10 +25,6 @@ export default async function Page({ searchParams }: { searchParams: { id: strin
   try {
     attractionResult = await fetchSingleAttraction(searchParams.id);
 
-    // if (!attractionResult.success) {
-    //   return;
-    // }
-
     let image = attractionResult.data.images
       ? filterBiggestImage(attractionResult.data.images)
       : /* TODO: default placeholder image */ null;
@@ -41,10 +34,6 @@ export default async function Page({ searchParams }: { searchParams: { id: strin
     data.image = image ?? { ...defaultImageData };
 
     const eventResult = await fetchEvents(data.attractionId);
-
-    // if (!eventResult.success) {
-    //   return;
-    // }
 
     data.events = eventResult.data ?? [];
   } catch (error) {}

@@ -1,5 +1,5 @@
 import TrendingCard from "./trending-card";
-import { ArtistData } from "../types/artist";
+import { ArtistData } from "../types/interfaces";
 
 const featuredArtists: Array<ArtistData> = [
   {

@@ -1,4 +1,4 @@
-import { EventData } from "@/app/types/event";
+import { EventData } from "@/app/types/interfaces";
 import Link from "next/link";
 import formatDateToMMDD from "@/app/util/formatDate";
 
@@ -12,7 +12,7 @@ export default function EventList({ data }: { data: EventData }) {
     <ul>
       {data.events.map((item) => {
         const date = formatDateToMMDD(item.dates.start.localDate ?? "");
-        const venue = item._embedded.venues[0] || {};
+        const venue = item?._embedded?.venues[0] ?? {};
         const city = venue.city?.name || "";
         const state = venue.state?.stateCode || "";
 
